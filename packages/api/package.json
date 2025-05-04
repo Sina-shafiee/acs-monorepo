@@ -1,0 +1,14 @@
+{
+	"name": "@acs/api",
+	"version": "0.1.0",
+	"private": true,
+	"main": "src/index.ts",
+	"module": "src/index.ts",
+	"dependencies": {
+		"server": "workspace:*"
+	},
+	"peerDependencies": {
+		"@trpc/client": "^11.0.0",
+		"@trpc/server": "^11.0.0"
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"name": "web",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev --turbopack",
+		"build": "next build",
+		"start": "next start",
+		"lint": "biome lint ./src",
+		"format": "biome format ./src",
+		"check-types": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@acs/api": "workspace:*",
+		"lucide-react": "^0.487.0",
+		"next": "15.3.0",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"@trpc/tanstack-react-query": "^11.0.0",
+		"@trpc/client": "^11.0.0",
+		"@trpc/server": "^11.0.0",
+		"@tanstack/react-query": "^5.69.0",
+		"better-auth": "^1.2.7"
+	},
+	"devDependencies": {
+		"@types/node": "^20",
+		"@biomejs/biome": "1.9.4",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"typescript": "^5",
+		"@tanstack/react-query-devtools": "^5.69.0"
+	}
+}

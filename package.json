@@ -1,0 +1,25 @@
+{
+	"name": "acs-monorepo",
+	"private": true,
+	"workspaces": ["apps/*", "packages/*"],
+	"scripts": {
+		"dev": "turbo dev",
+		"build": "turbo build",
+		"start": "turbo start",
+		"studio": "turbo -F server db:studio",
+		"migrate": "turbo -F server db:migrate",
+		"generate": "turbo -F server db:generate",
+		"seed": "turbo -F server db:seed",
+		"format": "turbo format --continue --",
+		"format:fix": "turbo format --continue -- --write",
+		"lint": "turbo lint --continue --",
+		"lint:fix": "turbo lint --continue -- --write",
+		"check-types": "turbo check-types"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"turbo": "^2.4.2",
+		"@biomejs/biome": "1.9.4"
+	},
+	"packageManager": "bun@1.2.11"
+}
