@@ -1,0 +1,24 @@
+pre-commit:
+  commands:
+    lint:
+      run: bun lint:fix
+      stage_fixed: true
+    format:
+      run: bun format:fix
+      stage_fixed: true
+    check-types:
+      run: bun check-types
+
+prepare-commit-msg:
+  commands:
+    commitzen:
+      interactive: true
+      run: bunx cz --hook
+      env:
+        LEFTHOOK: 0
+
+commit-msg:
+  commands:
+    "lint commit message":
+      run: bunx commitlint --edit {1}
+
