@@ -10,6 +10,7 @@ import {
 import accountListing from "./account_listing";
 import accountOrder from "./account_order";
 import userKycVerification from "./user_kyc_verification";
+import wallet from "./wallet";
 
 export const user = pgTable("user", {
 	id: text("id").primaryKey(),
@@ -73,7 +74,7 @@ export const verification = pgTable("verification", {
 	updatedAt: timestamp("updated_at", { mode: "string" }).notNull().defaultNow(),
 });
 
-export const userRelations = relations(user, ({ many }) => ({
+export const userRelations = relations(user, ({ one, many }) => ({
 	sessions: many(session),
 	kycVerifications: many(userKycVerification),
 	accountOrdersAsBuyer: many(accountOrder, {
@@ -84,6 +85,7 @@ export const userRelations = relations(user, ({ many }) => ({
 	}),
 	accountListings: many(accountListing),
 	userAccounts: many(account),
+	wallet: one(wallet),
 }));
 
 export const sessionRelations = relations(session, ({ one }) => ({

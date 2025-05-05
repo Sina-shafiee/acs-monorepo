@@ -181,6 +181,16 @@ CREATE TABLE "user_kyc_verifications" (
 	"updated_at" timestamp DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
+CREATE TABLE "wallet" (
+	"id" serial PRIMARY KEY NOT NULL,
+	"user_id" text NOT NULL,
+	"balance" text NOT NULL,
+	"iv" text NOT NULL,
+	"created_at" timestamp DEFAULT now() NOT NULL,
+	"updated_at" timestamp DEFAULT now() NOT NULL,
+	CONSTRAINT "wallet_user_id_unique" UNIQUE("user_id")
+);
+--> statement-breakpoint
 ALTER TABLE "account_attributes" ADD CONSTRAINT "account_attributes_account_id_account_listings_id_fk" FOREIGN KEY ("account_id") REFERENCES "public"."account_listings"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "account_attributes" ADD CONSTRAINT "account_attributes_attribute_def_id_game_attributes_id_fk" FOREIGN KEY ("attribute_def_id") REFERENCES "public"."game_attributes"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "account_listings" ADD CONSTRAINT "account_listings_user_id_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."user"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
@@ -202,6 +212,7 @@ ALTER TABLE "game_attributes" ADD CONSTRAINT "game_attributes_game_id_games_id_f
 ALTER TABLE "kyc_verification_logs" ADD CONSTRAINT "kyc_verification_logs_verification_id_user_kyc_verifications_id_fk" FOREIGN KEY ("verification_id") REFERENCES "public"."user_kyc_verifications"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "payments" ADD CONSTRAINT "payments_user_id_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."user"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "user_kyc_verifications" ADD CONSTRAINT "user_kyc_verifications_user_id_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."user"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "wallet" ADD CONSTRAINT "wallet_user_id_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."user"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 CREATE UNIQUE INDEX "account_attribute_unique" ON "account_attributes" USING btree ("account_id","attribute_def_id");--> statement-breakpoint
 CREATE INDEX "account_id_index" ON "account_attributes" USING btree ("account_id");--> statement-breakpoint
 CREATE UNIQUE INDEX "account_order_id_payment_id_idx" ON "account_order_payments" USING btree ("account_order_id","payment_id");--> statement-breakpoint

@@ -58,4 +58,9 @@ export {
 	chatMessageRelations,
 } from "./chat_message";
 
+export {
+	default as wallet,
+	walletRelations,
+} from "./wallet";
+
 export * from "./auth";
