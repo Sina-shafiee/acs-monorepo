@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+
+import { Providers } from "#/app/providers";
+import { sansStatic, sansVariable } from "#/utils/font";
+
 import "../index.css";
-import { Providers } from "./providers";
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -13,7 +16,11 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html
+			className={`${sansVariable.variable} ${sansStatic.variable}`}
+			dir="rtl"
+			lang="fa-IR"
+		>
 			<body>
 				<Providers>{children}</Providers>
 			</body>
