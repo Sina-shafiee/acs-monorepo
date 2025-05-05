@@ -1,0 +1,23 @@
+@import "@acs/ui/styles/tailwind.css";
+@import "./font.css";
+
+@layer utilities {
+	.font-sans-variable {
+		font-family: "sansVariable", sans-serif;
+	}
+	.font-sans-static {
+		font-family: "sansStatic", sans-serif;
+	}
+}
+
+@layer base {
+	html {
+		@apply font-sans-variable;
+	}
+}
+
+@supports not (font-variation-settings: normal) {
+	html {
+		@apply font-sans-static;
+	}
+}

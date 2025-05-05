@@ -1,0 +1,20 @@
+@font-face {
+	font-family: "sansVariable";
+	src: url("/fonts/sans/sansV.woff2") format("woff2");
+	font-weight: 100 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "sansStatic";
+	src: url("/fonts/sans/static/sansV-Bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "sansStatic";
+	src: url("/fonts/sans/static/sansV-Regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
